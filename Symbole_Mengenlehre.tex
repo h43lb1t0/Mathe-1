@@ -1,0 +1,490 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\usepackage{pgfplots}
+\geometry{a4paper, left=25mm, right=25mm, top=20mm, bottom=20mm}
+
+\begin{document}
+
+\title{Mathematische Symbole}
+\author{}
+\date{}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+\section{Mengenlehre}
+
+\subsection{Element von (\texorpdfstring{$\in$}{in})}
+\textbf{Symbol:} $\in$ \\
+\textbf{Erklärung:} Das Symbol $\in$ bedeutet, dass ein Element zu einer Menge gehört. \\
+\textbf{Beispiel:} $3 \in \mathbb{N}$, was bedeutet, dass die Zahl 3 ein Element der natürlichen Zahlen ist.
+
+\subsection{Kein Element von (\texorpdfstring{$\notin$}{notin})}
+\textbf{Symbol:} $\notin$ \\
+\textbf{Erklärung:} Das Symbol $\notin$ bedeutet, dass ein Element nicht zu einer Menge gehört. \\
+\textbf{Beispiel:} $-1 \notin \mathbb{N}$, da -1 keine natürliche Zahl ist.
+
+\subsection{Für alle (\texorpdfstring{$\forall$}{forall})}
+\textbf{Symbol:} $\forall$ \\
+\textbf{Erklärung:} Das Symbol $\forall$ bedeutet \textit{für alle}. \\
+\textbf{Beispiel:} $\forall x \in \mathbb{N}, x \geq 0$
+
+\subsection{Es existiert (\texorpdfstring{$\exists$}{exists})}
+\textbf{Symbol:} $\exists$ \\
+\textbf{Erklärung:} Das Symbol $\exists$ bedeutet \textit{es existiert}. \\
+\textbf{Beispiel:} $\exists x \in \mathbb{N}, x = 0$
+
+\subsection{Es existiert genau ein (\texorpdfstring{$\exists !$}{exists!})}
+\textbf{Symbol:} $\exists !$ \\
+\textbf{Erklärung:} Das Symbol $\exists !$ bedeutet \textit{es existiert genau ein}. \\
+\textbf{Beispiel:} $\exists ! x \in \mathbb{N}, x = 0$
+
+\subsection{Teilmenge (\texorpdfstring{$\subset$}{subset})}
+\textbf{Symbol:} $\subset$ \\
+\textbf{Erklärung:} Eine Menge $A$ ist eine \emph{echte Teilmenge} von $B$, wenn alle Elemente von $A$ auch in $B$ sind, aber $A \neq B$. \texttt{"Boolischer Ausdruck"} \\
+\textbf{Beispiel:} $\{1,2\} \subset \{1,2,3\}$
+
+\subsection{Teilmenge oder gleich (\texorpdfstring{$\subseteq$}{subseteq})}
+\textbf{Symbol:} $\subseteq$ \\
+\textbf{Erklärung:} Eine Menge $A$ ist eine \emph{Teilmenge} von $B$, wenn alle Elemente von $A$ auch in $B$ sind. \texttt{"Boolischer Ausdruck"} \\
+\textbf{Beispiel:} $\{1,2,3\} \subseteq \{1,2,3\}$
+
+\subsection{Vereinigung (\texorpdfstring{$\cup$}{cup})}
+\textbf{Symbol:} $\cup$ \\
+\textbf{Erklärung:} Die Vereinigung zweier Mengen $A$ und $B$ ist die Menge aller Elemente, die in $A$ oder in $B$ sind. \\
+\textbf{Beispiel:} $\{1,2\} \cup \{2,3\} = \{1,2,3\}$
+
+\subsection{Durchschnitt (\texorpdfstring{$\cap$}{cap})}
+\textbf{Symbol:} $\cap$ \\
+\textbf{Erklärung:} Der Durchschnitt zweier Mengen $A$ und $B$ ist die Menge aller Elemente, die sowohl in $A$ als auch in $B$ sind. \\
+\textbf{Beispiel:} $\{1,2\} \cap \{2,3\} = \{2\}$
+
+\subsection{Mengendifferenz (ohne) (\texorpdfstring{$\setminus$}{setminus})}
+\textbf{Symbol:} $\setminus$ \\
+\textbf{Erklärung:} Die Mengendifferenz $A \setminus B$ ist die Menge aller Elemente, die in $A$, aber nicht in $B$ sind. \\
+\textbf{Beispiel:} $\{1,2,3\} \setminus \{2,3\} = \{1\}$
+
+\subsection{Potenzmenge (\texorpdfstring{$\mathcal{P}$}{P})}
+\textbf{Symbol:} $\mathcal{P}$ \\
+\textbf{Erklärung:} Die Potenzmenge $\mathcal{P}(A)$ ist die Menge aller Teilmengen von $A$. \\
+\textbf{Beispiel:} Wenn $A = \{1,2\}$, dann ist $\mathcal{P}(A) = \{\emptyset, \{1\}, \{2\}, \{1,2\}\}$
+
+\subsection{Kartesisches Produkt (\texorpdfstring{$\times$}{times})}
+\textbf{Symbol:} $\times$ \\
+\textbf{Erklärung:} Das kartesische Produkt $A \times B$ ist die Menge aller geordneten Paare $(a,b)$ mit $a \in A$ und $b \in B$. \\
+\textbf{Beispiel:} $\{1,2\} \times \{a,b\} = \{(1,a),(1,b),(2,a),(2,b)\}$
+
+\subsection{Cardinalität (\texorpdfstring{$|A|$}{|A|})}
+\textbf{Symbol:} $|A|$ \\
+\textbf{Erklärung:} Die Anzahl der Elemente in der Menge $A$. \\
+\textbf{Beispiel:} Wenn $A = \{1,2,3\}$, dann ist $|A| = 3$
+
+\subsection{Mengennotation}
+\begin{itemize}
+    \item \textbf{Leeremenge: }$\emptyset$
+    \item \textbf{Menge mit Elementen:} $A = \{1,2,3\}$
+    \item \textbf{Menge mit Bedingung:} $B = \{x \in \mathbb{N} \mid 1 \leq x \leq 3\} = \{1,2,3\}$
+    \item \textbf{Menge als Intervall:} $C = \{x \in \mathbb{R} \mid 1 \leq x < 3\} = [1, 3[$ \\ \textbf{Erklärung:} Klammer offen weg von der Zahl bedeutet, dass die Zahl nicht in der Menge enthalten ist. Alternativ auch eine runde Klammer.
+\end{itemize}
+
+\subsection{Wichtige Mengen}
+
+\subsubsection{Natürliche Zahlen (\texorpdfstring{$\mathbb{N}$}{N})}
+\textbf{Symbol (Ohne Null):} $\mathbb{N}$ \\
+\textbf{Erklärung:} Die Menge der natürlichen Zahlen. \\
+\textbf{Beispiel:} $\mathbb{N} = \{1,2,3,\dots\}$ \\
+\textbf{Symbol (Mit Null):} $\mathbb{N}_0$ \\
+\textbf{Beispiel:} $\mathbb{N}_0 = \{0, 1,2,3,\dots\}$
+
+\subsubsection{Ganze Zahlen (\texorpdfstring{$\mathbb{Z}$}{Z})}
+\textbf{Symbol:} $\mathbb{Z}$ \\
+\textbf{Erklärung:} Die Menge der ganzen Zahlen. \\
+\textbf{Beispiel:} $\mathbb{Z} = \{\dots,-2,-1,0,1,2,\dots\}$
+
+\subsubsection{Reelle Zahlen (\texorpdfstring{$\mathbb{R}$}{R})}
+\textbf{Symbol:} $\mathbb{R}$ \\
+\textbf{Erklärung:} Die Menge der reellen Zahlen. \\
+\textbf{Beispiel:} $\mathbb{R} = \{-5, 0.5, \frac{2}{3}, \cdots\}$.
+
+\section{Logik}
+
+\subsection{Und (\texorpdfstring{$\land$}{land})}
+\textbf{Symbol:} $\land$ \\
+\textbf{Erklärung:} Das Symbol für die logische Konjunktion (UND). \\
+\textbf{Beispiel:} $A \subseteq B \land B \subseteq C$ \\ \\
+\textbf{Negation:} $\neg (A \land B) \equiv \neg A \lor \neg B$
+
+\subsection{Oder (\texorpdfstring{$\lor$}{lor})}
+\textbf{Symbol:} $\lor$ \\
+\textbf{Erklärung:} Das Symbol für die logische Disjunktion (ODER). \\
+\textbf{Beispiel:} $A \subseteq B \lor B \subseteq C$ \\ \\
+\textbf{Negation:} $\neg (A \lor B) \equiv \neg A \land \neg B$
+
+\subsection{Nicht (\texorpdfstring{$\neg$}{neg})}
+\textbf{Symbol:} $\neg$ \\
+\textbf{Erklärung:} Das Symbol für die logische Negation (NICHT). \\
+\textbf{Beispiel:} $\neg (A \subseteq B)$ \\ \\
+\textbf{Negation:} $\neg \neg A \equiv A$
+
+\subsection{Implikation (\texorpdfstring{$\implies$}{implies})}
+\textbf{Symbol:} $\implies$ \\
+\textbf{Erklärung:} Das Symbol für die logische Implikation (Wenn ... dann). \\
+\textbf{Beispiel:} $x > 2 \implies x^2 > 4$ \\ \\
+\textbf{Negation:} $\neg (A \implies B) \equiv A \land \neg B$
+
+\subsection{Umkehrimplikation (\texorpdfstring{$\impliedby$}{impliedby})}
+\textbf{Symbol:} $\impliedby$ \\
+\textbf{Erklärung:} Das Symbol für die logische Umkehrimplikation (Dann ... wenn). \\
+\textbf{Beispiel:} $x^2 > 4 \impliedby x > 2$ \\ \\
+\textbf{Negation:} $\neg (A \impliedby B) \equiv \neg A \land B$
+
+\subsection{Implikation (\texorpdfstring{$\rightarrow$}{rightarrow})}
+\textbf{Symbol:} $\rightarrow$ \\
+\textbf{Erklärung:} Ein weiteres Symbol für die logische Implikation. \\
+\textbf{Beispiel:} $x > 2 \rightarrow x^2 > 4$ \\ \\
+\textbf{Negation:} $\neg (A \rightarrow B) \equiv A \land \neg B$
+
+\subsection{Umkehrimplikation (\texorpdfstring{$\leftarrow$}{leftarrow})}
+\textbf{Symbol:} $\leftarrow$ \\
+\textbf{Erklärung:} Ein weiteres Symbol für die logische Umkehrimplikation. \\
+\textbf{Beispiel:} $x^2 > 4 \leftarrow x > 2$ \\ \\
+\textbf{Negation:} $\neg (A \leftarrow B) \equiv \neg A \land B$
+
+\subsection{Äquivalenz (\texorpdfstring{$\iff$}{iff})}
+\textbf{Symbol:} $\iff$ \\
+\textbf{Erklärung:} Das Symbol für die logische Äquivalenz (genau dann, wenn). \\
+\textbf{Beispiel:} $x > 2 \iff x^2 > 4$ \\ \\
+\textbf{Negation:} $\neg (A \iff B) \equiv A \iff \neg B$
+
+\subsection{Logische Äquivalenz (\texorpdfstring{$\Leftrightarrow$}{Leftrightarrow})}
+\textbf{Symbol:} $\Leftrightarrow$ \\
+\textbf{Erklärung:} Ein weiteres Symbol für die logische Äquivalenz. \\
+\textbf{Beispiel:} $x \in \mathbb{Q} \Leftrightarrow x$ ist eine rationale Zahl. \\ \\
+\textbf{Negation:} $\neg (A \Leftrightarrow B) \equiv A \Leftrightarrow \neg B$
+
+\subsection{Biimplikation (\texorpdfstring{$\leftrightarrow$}{leftrightarrow})}
+\textbf{Symbol:} $\leftrightarrow$ \\
+\textbf{Erklärung:} Das Symbol für die beidseitige Implikation oder Biimplikation. \\
+\textbf{Beispiel:} $P \leftrightarrow Q$ \\ \\
+\textbf{Negation:} $\neg (A \leftrightarrow B) \equiv A \leftrightarrow \neg B$
+
+\subsection{Folgerung (\texorpdfstring{$\vdash$}{vdash})}
+\textbf{Symbol:} $\vdash$ \\
+\textbf{Erklärung:} Das Symbol für die logische Folgerung oder Ableitung. \\
+\textbf{Beispiel:} $P \vdash Q$ bedeutet, dass $Q$ aus $P$ folgt.
+\section{Zuweisungen}
+
+\subsection{Definition (\texorpdfstring{$:=$}{:=})}
+\textbf{Symbol:} $:=$ \\
+\textbf{Erklärung:} Das Symbol $:=$ bedeutet \textit{ist definiert als}. \\
+\textbf{Beispiel:} $A := \{1,2,3\}$
+
+
+\section{LGS (Lineare Gleichungssysteme)}
+\subsection{Begriffe}
+\begin{itemize}
+    \item \textbf{Koeffizient:} Die Zahlen vor den Variablen in einer Gleichung.
+    \item \textbf{Pivot:} Der Wert in einer Zeile, der als erstes von Null verschieden ist.
+    \item \textbf{Pivotvariable:} Die Variable, die in einer Zeile mit dem Pivotwert steht.
+    \item \textbf{Pivotzeile:} Die Zeile in einem LGS, in der der Pivotwert steht.
+    \item \textbf{Koeffizientenmatrix:} Die Matrix, die aus den Koeffizienten der Variablen besteht.
+    \item \textbf{Erweiterte Koeffizientenmatrix:} Die Matrix, die aus den Koeffizienten der Variablen und den Ergebnissen besteht.
+\end{itemize}
+
+\subsection{Gauß-Algorithmus}
+\begin{itemize}
+    \item \textbf{Schritt 1:} Stelle die Koeffizientenmatrix auf.
+    \item \textbf{Schritt 2:} Führe Zeilenoperationen durch, um Nullen unter den Pivotelementen zu erzeugen.
+    \item \textbf{Schritt 3:} Zeilenstuffenform erreichen.
+    \begin{itemize}
+        \item Unten links von jedem Pivotwert müssen Nullen stehen.
+        \item Mit der Linken Seite der Matrix beginnen. Dabei immer die erste Zeile zum verrechnen verwenden.
+        \item Bei folgenden spalten immer die Zeile mit 0 links neben dem Pivotwert verwenden.
+    \end{itemize}
+    \item \textbf{Schritt 4:} Rückwärtseinsetzen, um die Lösung zu finden.
+\end{itemize}
+\subsection{Mögliche Ergebnisse}
+\begin{itemize}
+    \item \textbf{Keine Lösung:} Wenn ein Widerspruch entsteht, z.B. $0 = 1$.
+    \item \textbf{Unendlich viele Lösungen:} Wenn mehr Unbekannte als Gleichungen vorhanden sind. z.B. Letze Zeile $0 = 0$.
+    \item \textbf{Eine Lösung:} Wenn alle Variablen eindeutig bestimmt werden können.
+\end{itemize}
+\subsection{Beispiel (Eine Lösung)}
+\begin{align*}
+2x_1 + 3x_2 -x_3 &= 5 \\
+4x_1 - x_2 + 5x_3 &= 9 \\
+x_1 + 2x_2 + 3x_3 &= 6
+\end{align*}
+\textbf{Koeffizientenmatrix:}
+\[
+A =
+\quad
+\begin{pmatrix}
+2 & 3 & -1 \\
+4 & -1 & 5 \\
+1 & 2 & 3
+\end{pmatrix}
+\quad
+, b =
+\quad
+\begin{pmatrix}
+5 \\
+9 \\
+6
+\end{pmatrix}
+\]
+Zeilenstuffenform bilden:
+\[
+\begin{matrix}
+2 & 3 & -1 & 5 \\
+4 & -1 & 5 & 9 & \vert II - 2 \cdot I \\
+1 & 2 & 3 & 6 & \vert 2 \cdot III - I
+\end{matrix}
+\]
+\[
+\begin{matrix}
+2 & 3 & -1 & 5 \\
+0 & -7 & 7 & -1 \\
+0 & 1 & 7 & 7 & \vert 7 \cdot III + II
+\end{matrix}
+\]
+\[
+\begin{matrix}
+2 & 3 & -1 & 5 \\
+0 & -7 & 7 & -1 \\
+0 & 0 & 56 & 48
+\end{matrix}
+\]
+\textbf{Rückwärtseinsetzen:} \\
+\[
+    56x_3 = 48 \vert :56
+    \quad \Rightarrow \quad
+    x_3 = \frac{48}{56} = \frac{6}{7} 
+\]
+\[
+-7x_2 + 7 \cdot \frac{6}{7} = -1 \quad \Rightarrow \quad -7x_2 + 6 = -1 \quad \Rightarrow \quad -7x_2 = -7 \quad \Rightarrow \quad x_2 = 1
+\]
+\[
+2x_1 + 3 \cdot 1 - \frac{6}{7} = 5 \quad \Rightarrow \quad 2x_1 + 3 - \frac{6}{7} = 5 \quad \Rightarrow \quad 2x_1 = 5 - 3 + \frac{6}{7} = \frac{32}{7} \quad \Rightarrow \quad x_1 = \frac{16}{7}
+\]
+\textbf{Lösungsmenge:} $\left\{ \left( \frac{16}{7}, 1, \frac{6}{7} \right) \right\}$
+
+\subsection{Beispiel (Unendlich viele Lösungen mit Parameter t)}
+\begin{align*}
+    x_1 + 2x_2 - x_3 &= 3 \\
+    2x_1 + 4x_2 - 2x_3 &= 6 \\
+    3x_1 + 6x_2 - 3x_3 &= 9
+\end{align*}
+\textbf{erweitere Koeffizientenmatrix:}
+\[
+\begin{pmatrix}
+1 & 2 & -1 & 3 \\
+2 & 4 & -2 & 6 \\
+3 & 6 & -3 & 9
+\end{pmatrix}
+\]
+\textbf{Zeilenstuffenform:}
+\[
+\begin{matrix}
+1 & 2 & -1 & 3 \\
+2 & 4 & -2 & 6 & \vert II - 2 \cdot I\\
+3 & 6 & -3 & 9 & \vert III - 3 \cdot I
+\end{matrix}
+\]
+\[
+\begin{matrix}
+1 & 2 & -1 & 3 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0
+\end{matrix}
+\]
+\textbf{Lösung:} \\
+ $x_1 = 3 - 2t$ \\
+$, x_2 = t$ \\
+$x_3 = t$
+
+\section{Matritzen und Vektoren}
+\subsection{Transponierte Matrix (\texorpdfstring{$A^T$}{A^T})}
+Jede Zeile wird zur Spalte. Die Elemente werden von mit dem Uhrzeigersinn gedreht. \\
+\textbf{Beispiel:}
+\[
+\begin{pmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6
+\end{pmatrix}^T
+\quad
+=
+\quad
+\begin{pmatrix}
+    1 & 4 \\
+    2 & 5 \\
+    3 & 6
+\end{pmatrix}
+\]
+
+\subsection{Addition und Subtraktion}
+Matritzen (und Vektoren) können nur addiert oder subtrahiert werden, wenn sie die gleiche Dimension haben. \\
+Jedes Element wird mit dem entsprechenden Element der anderen Matrix addiert oder subtrahiert. \\
+\textbf{Beispiel:}
+\[
+\begin{pmatrix}
+1 & 2 \\
+3 & 4
+\end{pmatrix}
++
+\begin{pmatrix}
+5 & 6 \\
+7 & 8
+\end{pmatrix}
+=
+\begin{pmatrix}
+6 & 8 \\
+10 & 12
+\end{pmatrix}
+\]
+
+\subsection{Sklarmultiplikation}
+Eine Matrix (oder ein Vektor) wird mit einem Skalar multipliziert. \\
+Jedes Element der Matrix (oder des Vektors) wird mit dem Skalar multipliziert. \\
+\textbf{Beispiel:}
+\[
+2 \cdot
+\begin{pmatrix}
+1 & 2 \\
+3 & 4
+\end{pmatrix}
+=
+\begin{pmatrix}
+2 & 4 \\
+6 & 8
+\end{pmatrix}
+\]
+
+\subsection{Sklarprodukt}
+Das Skalarprodukt zweier Vektoren ist die Summe der Produkte der entsprechenden Elemente. \\
+\textbf{Beispiel:}
+\[
+\begin{pmatrix}
+1 \\
+2 \\
+3
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+4 \\
+5 \\
+6
+\end{pmatrix}
+=
+1 \cdot 4 + 2 \cdot 5 + 3 \cdot 6
+=
+4 + 10 + 18
+=
+32
+\]
+
+\subsection{Liniearkombination}
+Eine Linearkombination ist eine Summe von Skalarmultiplikationen von Vektoren. \\
+\textbf{Beispiel:}
+\[
+2 \cdot
+\begin{pmatrix}
+1 \\
+2
+\end{pmatrix}
++
+3 \cdot
+\begin{pmatrix}
+3 \\
+4
+\end{pmatrix}
+=
+\begin{pmatrix}
+2 \\
+4
+\end{pmatrix}
++
+\begin{pmatrix}
+9 \\
+12
+\end{pmatrix}
+=
+\begin{pmatrix}
+11 \\
+16
+\end{pmatrix}
+\]
+
+\subsection{Analytische Geometrie}
+Die Analytische Geometrie löst geometrische Probleme mit algebraischen Methoden. Bietet aber auch die Möglichkeit, algebraische Probleme verständlich zu visualisieren. \\
+
+Vektoren werden als Pfeile dargestellt. Der Anfangspunkt ist der Ursprung. Der Pfeil zeigt in die Richtung des Vektors. \\
+
+\subsubsection{Kartesisches Koordinatensystem}
+\begin{itemize}
+    \item $n$-dimensionales Koordinatensystem mit $n$ Achsen.
+    \item Achsen schneiden sich im Ursprung.
+    \item Der Schnittpunkt der Achsen ist der Ursprung.
+\end{itemize}
+
+\subsubsection{Addition und Subtraktion}
+Zwei Vektoren \textbf{a} und \textbf{b} spannen immer ein Parallelogramm mit den Diagonalen \textbf{$a+b$} und \textbf{$a-b$} auf, so lange sie nicht parallel, ein Vielfaches voneinander oder der Nullvektor sind. \\
+
+\textbf{Beispiel:}
+\[
+\begin{pmatrix}
+1 \\
+3
+\end{pmatrix}
++
+\begin{pmatrix}
+8 \\
+2
+\end{pmatrix}
+=
+\begin{pmatrix}
+9 \\
+5
+\end{pmatrix}
+\]
+
+
+\begin{tikzpicture}
+    % Definition der Achsen
+    \begin{axis}[
+        axis lines = middle,
+        xlabel = {$x$},
+        ylabel = {$y$},
+        xmin = 0, xmax = 11,
+        ymin = 0, ymax = 6,
+        axis equal,
+        grid = both,
+        legend style={at={(1,1)},anchor=north east},
+        title = {Vektoraddition und -subtraktion}
+    ]
+
+    \addplot[->, blue, thick] coordinates {(0,0) (1,3)};
+    \node at (axis cs: 1, 3) [anchor=south] {$\vec{a}$};
+
+    \addplot[->, red, thick] coordinates {(0,0) (8,2)};
+    \node at (axis cs: 8, 2) [anchor=south] {$\vec{b}$};
+
+    \addplot[->, black, dashed] coordinates {(1,3) (9, 5)};
+    \addplot[->, black, dashed] coordinates {(8,2) (9, 5)};
+
+    \addplot[->, green, thick] coordinates {(0,0) (9,5)};
+    \node at (axis cs: 9, 5) [anchor=south] {$\vec{a} + \vec{b}$};
+
+    \addplot[->, orange, thick] coordinates {(8, 2) (1,3)};
+    \node at (axis cs: 3, 2) [anchor=south] {$\vec{a} - \vec{b}$};
+    \end{axis}
+\end{tikzpicture}
+
+
+
+\end{document}
