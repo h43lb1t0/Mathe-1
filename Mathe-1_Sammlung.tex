@@ -4,15 +4,23 @@
 \usepackage{amsmath, amssymb}
 \usepackage{geometry}
 \usepackage{pgfplots}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{colortbl}
 \geometry{a4paper, left=25mm, right=25mm, top=20mm, bottom=20mm}
 
 \begin{document}
 
-\title{Mathematische Symbole}
-\author{}
-\date{}
+\title{Mathe 1}
+\author{Tom Haelbich}
+\date{WiSe2024/25}
 
 \maketitle
+\begin{center}
+    \textbf{Hochschule für Technik und Wirtschaft Berlin} \\
+    Angewandte Informatik
+\end{center}
+
 
 \tableofcontents
 \newpage
@@ -197,6 +205,7 @@
 \end{itemize}
 
 \subsection{Gauß-Algorithmus}
+\textbf{Videoempfehlung:} \href{https://youtu.be/aosbq7Ci7Ec}{Gauß Algorithmus – Lineare Gleichungssysteme lösen | MathemaTrick}
 \begin{itemize}
     \item \textbf{Schritt 1:} Stelle die Koeffizientenmatrix auf.
     \item \textbf{Schritt 2:} Führe Zeilenoperationen durch, um Nullen unter den Pivotelementen zu erzeugen.
@@ -216,27 +225,29 @@
 \end{itemize}
 \subsection{Beispiel (Eine Lösung)}
 \begin{align*}
-2x_1 + 3x_2 -x_3 &= 5 \\
-4x_1 - x_2 + 5x_3 &= 9 \\
-x_1 + 2x_2 + 3x_3 &= 6
+\textcolor{red}{2x_1} + 3x_2 \textcolor{blue}{-x_3} &= \textcolor{orange}{5} \\
+\textcolor{red}{4x_1} - x_2 \textcolor{blue}{+ 5x_3} &= \textcolor{orange}{9} \\
+\textcolor{red}{x_1} + 2x_2 \textcolor{blue}{+ 3x_3} &= \textcolor{orange}{6}
 \end{align*}
 \textbf{Koeffizientenmatrix:}
 \[
 A =
 \quad
 \begin{pmatrix}
-2 & 3 & -1 \\
-4 & -1 & 5 \\
-1 & 2 & 3
+\textcolor{red}{2} & 3 & \textcolor{blue}{-1} \\
+\textcolor{red}{4} & -1 & \textcolor{blue}{5} \\
+\textcolor{red}{1} & 2 & \textcolor{blue}{3}
 \end{pmatrix}
 \quad
 , b =
 \quad
+\textcolor{orange}{
 \begin{pmatrix}
 5 \\
 9 \\
 6
 \end{pmatrix}
+}
 \]
 Zeilenstuffenform bilden:
 \[
@@ -254,24 +265,33 @@ Zeilenstuffenform bilden:
 \end{matrix}
 \]
 \[
-\begin{matrix}
-2 & 3 & -1 & 5 \\
-0 & -7 & 7 & -1 \\
+\begin{array}{cccc}
+\rowcolor{blue!10}
+2 & 3 & -1 & 5 \\[5pt]
+\rowcolor{red!30}
+0 & -7 & 7 & -1 \\[5pt]
+\rowcolor{green!20}
 0 & 0 & 56 & 48
-\end{matrix}
+\end{array}
 \]
 \textbf{Rückwärtseinsetzen:} \\
+\textcolor{green}{
 \[
     56x_3 = 48 \vert :56
     \quad \Rightarrow \quad
     x_3 = \frac{48}{56} = \frac{6}{7} 
 \]
+}
+\textcolor{red}{
 \[
 -7x_2 + 7 \cdot \frac{6}{7} = -1 \quad \Rightarrow \quad -7x_2 + 6 = -1 \quad \Rightarrow \quad -7x_2 = -7 \quad \Rightarrow \quad x_2 = 1
 \]
+}
+\textcolor{blue}{
 \[
 2x_1 + 3 \cdot 1 - \frac{6}{7} = 5 \quad \Rightarrow \quad 2x_1 + 3 - \frac{6}{7} = 5 \quad \Rightarrow \quad 2x_1 = 5 - 3 + \frac{6}{7} = \frac{32}{7} \quad \Rightarrow \quad x_1 = \frac{16}{7}
 \]
+}
 \textbf{Lösungsmenge:} $\left\{ \left( \frac{16}{7}, 1, \frac{6}{7} \right) \right\}$
 
 \subsection{Beispiel (Unendlich viele Lösungen mit Parameter t)}
@@ -309,21 +329,22 @@ $, x_2 = t$ \\
 $x_3 = t$
 
 \section{Matritzen und Vektoren}
+\textbf{Videoempfehlung:} \href{https://www.youtube.com/watch?v=fNk_zzaMoSs}{Videoserie 3Blue1Brown - Essence of Linear Algebra 1: Vektoren}
 \subsection{Transponierte Matrix (\texorpdfstring{$A^T$}{A^T})}
 Jede Zeile wird zur Spalte. Die Elemente werden von mit dem Uhrzeigersinn gedreht. \\
 \textbf{Beispiel:}
 \[
 \begin{pmatrix}
-1 & 2 & 3 \\
-4 & 5 & 6
+1 & \textcolor{blue}{2} & \textcolor{red}{3} \\
+4 & \textcolor{blue}{5} & \textcolor{red}{6}
 \end{pmatrix}^T
 \quad
 =
 \quad
 \begin{pmatrix}
     1 & 4 \\
-    2 & 5 \\
-    3 & 6
+    \textcolor{blue}{2} & \textcolor{blue}{5} \\
+    \textcolor{red}{3} & \textcolor{red}{6}
 \end{pmatrix}
 \]
 
@@ -370,22 +391,22 @@ Das Skalarprodukt zweier Vektoren ist die Summe der Produkte der entsprechenden 
 \textbf{Beispiel:}
 \[
 \begin{pmatrix}
-1 \\
-2 \\
+\textcolor{blue}{1} \\
+\textcolor{green}{2} \\
 3
 \end{pmatrix}
 \cdot
 \begin{pmatrix}
-4 \\
-5 \\
+\textcolor{blue}{4} \\
+\textcolor{green}{5} \\
 6
 \end{pmatrix}
 =
-1 \cdot 4 + 2 \cdot 5 + 3 \cdot 6
+\textcolor{blue}{1 \cdot 4} + \textcolor{green}{2 \cdot 5} + 3 \cdot 6
 =
-4 + 10 + 18
+\textcolor{blue}{4} + \textcolor{green}{10} + 18
 =
-32
+\textcolor{red}{32}
 \]
 
 \subsection{Liniearkombination}
@@ -432,6 +453,7 @@ Vektoren werden als Pfeile dargestellt. Der Anfangspunkt ist der Ursprung. Der P
     \item Der Schnittpunkt der Achsen ist der Ursprung.
 \end{itemize}
 
+\newpage
 \subsubsection{Addition und Subtraktion}
 Zwei Vektoren \textbf{a} und \textbf{b} spannen immer ein Parallelogramm mit den Diagonalen \textbf{$a+b$} und \textbf{$a-b$} auf, so lange sie nicht parallel, ein Vielfaches voneinander oder der Nullvektor sind. \\
 
@@ -453,37 +475,235 @@ Zwei Vektoren \textbf{a} und \textbf{b} spannen immer ein Parallelogramm mit den
 \end{pmatrix}
 \]
 
+\[
+\begin{pmatrix}
+1 \\
+3
+\end{pmatrix}
+-
+\begin{pmatrix}
+8 \\
+2
+\end{pmatrix}
+=
+\begin{pmatrix}
+-7 \\
+1
+\end{pmatrix}
+\]
 
+\begin{center}
 \begin{tikzpicture}
     % Definition der Achsen
     \begin{axis}[
         axis lines = middle,
         xlabel = {$x$},
         ylabel = {$y$},
-        xmin = 0, xmax = 11,
-        ymin = 0, ymax = 6,
+        xmin = -10, xmax = 11,
+        ymin = -2, ymax = 6,
         axis equal,
         grid = both,
         legend style={at={(1,1)},anchor=north east},
         title = {Vektoraddition und -subtraktion}
     ]
 
+    % Original Vectors
     \addplot[->, blue, thick] coordinates {(0,0) (1,3)};
     \node at (axis cs: 1, 3) [anchor=south] {$\vec{a}$};
 
     \addplot[->, red, thick] coordinates {(0,0) (8,2)};
     \node at (axis cs: 8, 2) [anchor=south] {$\vec{b}$};
 
+    % Addition and Subtraction of Vectors
     \addplot[->, black, dashed] coordinates {(1,3) (9, 5)};
     \addplot[->, black, dashed] coordinates {(8,2) (9, 5)};
-
     \addplot[->, green, thick] coordinates {(0,0) (9,5)};
     \node at (axis cs: 9, 5) [anchor=south] {$\vec{a} + \vec{b}$};
 
-    \addplot[->, orange, thick] coordinates {(8, 2) (1,3)};
-    \node at (axis cs: 3, 2) [anchor=south] {$\vec{a} - \vec{b}$};
+    \addplot[->, orange, thick] coordinates {(0,0) (-7,1)};
+    \node at (axis cs: -7, 1) [anchor=south] {$\vec{a} - \vec{b}$};
+
+    % Negation of Vector b
+    \addplot[->, red, dashed] coordinates {(0,0) (-8,-2)};
+    \addplot[->, blue, dashed] coordinates {(-8,-2) (-7,1)};
+    \addplot[->, black, dashed] coordinates {(-7,1) (1,3)};
+
     \end{axis}
 \end{tikzpicture}
+\end{center}
+
+\subsubsection{Sklarmultiplikation}
+Die Skalarmultiplikation eines Vektors \textbf{a} mit einem Skalar $\lambda$ verändert die Länge des Vektors, aber nicht die Richtung. \\
+\textbf{Beispiel:}
+\[
+-1 \cdot
+\begin{pmatrix}
+1 \\
+3
+\end{pmatrix}
+=
+\begin{pmatrix}
+-1 \\
+-3
+\end{pmatrix}
+\]
+
+\begin{center}
+\begin{tikzpicture}
+    % Definition der Achsen
+    \begin{axis}[
+        axis lines = middle,
+        xlabel = {$x$},
+        ylabel = {$y$},
+        xmin = -2, xmax = 2,
+        ymin = -4, ymax = 4,
+        axis equal,
+        grid = both,
+        legend style={at={(1,1)},anchor=north east},
+        title = {Sklarmultiplikation}
+    ]
+
+    % Original Vector
+    \addplot[->, blue, thick] coordinates {(0,0) (1,3)};
+    \node at (axis cs: 1, 3) [anchor=south] {$\vec{a}$};
+
+    % Skalarmultiplikation
+    \addplot[->, red, thick] coordinates {(0,0) (-1,-3)};
+    \node at (axis cs: -1, -3) [anchor=north] {$-1 \cdot \vec{a}$};
+
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+
+\subsubsection{Zeilenbild LGS}
+Die Zeilen eines LGS können als Vektoren interpretiert werden. \\
+\textbf{Beispiel:}
+\[
+\begin{matrix}
+2x_1 + 3x_2 &= 5 \\
+4x_1 - x_2 &= 9 \\
+\end{matrix}
+\]
+Nach $x_2$ umstellen:
+\[
+\begin{matrix}
+x_2 &= \frac{5}{3} - \frac{2}{3}x_1 \\
+x_2 &= 9 + 4x_1
+\end{matrix}
+\]
+\begin{center}
+\begin{tikzpicture}
+    % Definition der Achsen
+    \begin{axis}[
+        axis lines = middle,
+        xlabel = {$x_1$},
+        ylabel = {$x_2$},
+        xmin = -2, xmax = 2,
+        ymin = -1, ymax = 7,
+        axis equal,
+        grid = both,
+        legend style={at={(1,1)},anchor=north east},
+        title = {Zeilenbild LGS}
+    ]
+
+    \addplot[thick, blue] {5/3 - 2/3 * x};
+    \node at (axis cs: 1, 1) [anchor=south] {\textcolor{blue}{$x_2 = \frac{5}{3}-\frac{2}{3}x_1$}};
+
+    \addplot[thick, red] {9 + 4 * x};
+    \node at (axis cs: 1, 5) [anchor=south] {\textcolor{red}{$x_2 = 9 + 4x_1$}};
+
+    \node at (axis cs: -1.6, 2.7) [anchor=east] {$\begin{pmatrix}
+    -1.57 \\
+    2.7
+    \end{pmatrix}$};   
+
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+Der Schnittpunkt der beiden Geraden ist die Lösung des LGS. \\
+\textbf{Lösung:} $(x_1, x_2) = (-1.57, 2.7)$
+
+\subsubsection{Spaltenbild LGS}
+Die Spalten einer Koeffizientenmatrix eines LGS können als Linearkombination dargestellt werden. \\
+\textbf{Beispiel:}
+\[
+\begin{matrix}
+3x_1 - x_2 = 1 \\
+x_1 + 2x_2 = 5
+\end{matrix}
+\Leftrightarrow
+x_1 \cdot
+\textcolor{red}{
+\begin{pmatrix}
+3 \\
+1
+\end{pmatrix}
+}
++
+x_2 \cdot
+\textcolor{blue}{
+\begin{pmatrix}
+-1 \\
+2
+\end{pmatrix}
+}
+=
+\textcolor{orange}{
+\begin{pmatrix}
+1 \\
+5
+\end{pmatrix}
+}
+\]
+
+Parallelogramm aufspannen:
+\begin{center}
+\begin{tikzpicture}
+
+    % Definition der Achsen
+    \begin{axis}[
+        axis lines = middle,
+        xlabel = {$b_1$},
+        ylabel = {$b_2$},
+        xmin = -2, xmax = 2,
+        ymin = -1, ymax = 7,
+        axis equal,
+        grid = both,
+        legend style={at={(1,1)},anchor=north east},
+        title = {Spaltenbild LGS}
+    ]
+
+    % Original Vectors
+    \addplot[->, red, thick] coordinates {(0,0) (3,1)};
+    \node at (axis cs: 3, 1) [anchor=south] {\textcolor{red}{$\vec{a}$}};
+
+    \addplot[->, blue, thick] coordinates {(0,0) (-1,2)};
+    \node at (axis cs: -1, 2) [anchor=south] {\textcolor{blue}{$\vec{b}$}};
+
+    % Linearkombination
+    \addplot[->, orange, thick] coordinates {(0,0) (1,5)};
+    \node at (axis cs: 1, 5) [anchor=south] {\textcolor{orange}{$\vec{c}$}};
+
+    \addplot[black, dashed] coordinates {(-1, 2) (-2,4)};
+    \addplot[black, dashed] coordinates {(3, 1) (1,5)};
+    \addplot[black, dashed] coordinates {(-2,4) (1,5)};
+
+    \node at (axis cs: -1.6, 2.7) [anchor=east] {\textcolor{blue}{$2 \cdot \vec{b}$}};
+
+    \node at (axis cs: -1.25, 5) [anchor=west] {\textcolor{red}{$1 \cdot \vec{a}$}};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+Aus dem Parallelogramm kann die Lösung des LGS abgelesen werden in dem geguckt wird, wie oft der Vektor $\vec{a}$ und $\vec{b}$ addiert werden müssen, um den Vektor $\vec{c}$ zu erreichen. \\
+\[
+\textcolor{red}{1 \cdot \vec{a}}\textcolor{blue}{ + 2 \cdot \vec{b}} = \textcolor{orange}{\vec{c}}
+\]
+\textbf{Lösung:} $(x_1, x_2) = (1, 2)$
+
+
+
+
+
 
 
 
