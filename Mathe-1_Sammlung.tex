@@ -66,16 +66,51 @@
 \textbf{Symbol:} $\cup$ \\
 \textbf{Erklärung:} Die Vereinigung zweier Mengen $A$ und $B$ ist die Menge aller Elemente, die in $A$ oder in $B$ sind. \\
 \textbf{Beispiel:} $\{1,2\} \cup \{2,3\} = \{1,2,3\}$
+\begin{center}
+    \begin{tikzpicture}
+        \fill[blue!20] (-1,0) circle (1.5); % Färbung für A
+    \fill[blue!20] (1,0) circle (1.5); % Färbung für B
+
+    % Zeichne die Ränder der Kreise
+    \draw (-1,0) circle (1.5) node[left] {$A$}; % Rand von A
+    \draw (1,0) circle (1.5) node[right] {$B$}; % Rand von B
+
+    % Beschriftung der Vereinigungsmenge
+    \end{tikzpicture}
+\end{center}
 
 \subsection{Durchschnitt (\texorpdfstring{$\cap$}{cap})}
 \textbf{Symbol:} $\cap$ \\
 \textbf{Erklärung:} Der Durchschnitt zweier Mengen $A$ und $B$ ist die Menge aller Elemente, die sowohl in $A$ als auch in $B$ sind. \\
 \textbf{Beispiel:} $\{1,2\} \cap \{2,3\} = \{2\}$
+\begin{center}
+    \begin{tikzpicture}
+        \begin{scope}
+            \clip (-1,0) circle (1.5);
+            \fill[blue!20] (1,0) circle (1.5);
+        \end{scope}
+        % Zeichne die Ränder der Kreise
+        \draw (-1,0) circle (1.5) node[left] {$A$}; % Rand von A
+        \draw (1,0) circle (1.5) node[right] {$B$}; % Rand von B
+    \end{tikzpicture}
+\end{center}
 
 \subsection{Mengendifferenz (ohne) (\texorpdfstring{$\setminus$}{setminus})}
 \textbf{Symbol:} $\setminus$ \\
 \textbf{Erklärung:} Die Mengendifferenz $A \setminus B$ ist die Menge aller Elemente, die in $A$, aber nicht in $B$ sind. \\
 \textbf{Beispiel:} $\{1,2,3\} \setminus \{2,3\} = \{1\}$
+\begin{center}
+    \begin{tikzpicture}
+        \fill[blue!20] (-1,0) circle (1.5); % Färbung für A
+        \begin{scope}
+            \clip (1,0) circle (1.5) (-1,0) circle (1.5);
+            \fill[white] (1,0) circle (1.5);
+        \end{scope}
+        % Zeichne die Ränder der Kreise
+        \draw (-1,0) circle (1.5) node[left] {$A$}; % Rand von A
+        \draw (1,0) circle (1.5) node[right] {$B$}; % Rand von B
+    \end{tikzpicture}
+\end{center}
 
 \subsection{Potenzmenge (\texorpdfstring{$\mathcal{P}$}{P})}
 \textbf{Symbol:} $\mathcal{P}$ \\
