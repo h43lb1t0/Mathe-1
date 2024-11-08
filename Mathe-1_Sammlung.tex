@@ -9,6 +9,9 @@
 \usepackage{colortbl}
 \geometry{a4paper, left=25mm, right=25mm, top=20mm, bottom=20mm}
 
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
 \begin{document}
 
 \title{Mathe 1}
@@ -404,7 +407,12 @@ $def(B) = 3 - 3 = 0$
     \item $def(A) = 0$:\quad LGS hat genau eine Lösung.
     \item $def(A) > 0$:\quad LGS hat unendlich viele Lösungen.
 \end{itemize}
-
+\subsection{Lösungsmenge bestimmen}
+\textbf{Begriffe:}
+\begin{itemize}
+    \item \textbf{Homogenes LGS:} Ein LGS, bei dem alle Ergebnisse auf der rechten Seite 0 sind.
+    \item \textbf{Inhomogenes LGS:} Ein LGS, bei dem mindestens ein Ergebnis auf der rechten Seite ungleich 0 ist.
+\end{itemize}
 \section{Matritzen und Vektoren}
 \textbf{Videoempfehlung:} \href{https://www.youtube.com/watch?v=fNk_zzaMoSs}{Videoserie 3Blue1Brown - Essence of Linear Algebra 1: Vektoren} \\ \\
 Matritzen und Vektoren haben Dimensionen. Die Dimension einer Matrix ist die Anzahl der \textcolor{blue}{Zeilen} und \textcolor{red}{Spalten}. Dies wird Dargestellt als $A \in \mathbb{R}^{\textcolor{blue}{Zeilen}\text{x}\textcolor{red}{Spalten}}$\\ Die Dimension eines Vektors ist die Anzahl der Elemente. \\
@@ -485,6 +493,37 @@ Das Skalarprodukt zweier Vektoren ist die Summe der Produkte der entsprechenden 
 \textcolor{blue}{4} + \textcolor{green}{10} + 18
 =
 \textcolor{red}{32}
+\]
+
+\subsection{Rang-1-/Äußeres Produkt}
+Das Rang-1-Produkt zweier Vektoren ist eine Matrix. \\
+Das Rang-1-Produkt funktioniert, grundlegend wie das Skalarprodukt, jedoch werden die Produkte nicht addiert, sondern in eine Matrix geschrieben. \\ \\
+\textbf{Vorraussetzung:} Der erste Vektor ist ein Spaltenvektor und der zweite Vektor ist ein Zeilenvektor. \\
+\textbf{Beispiel:}
+\[
+    \textcolor{olive}{
+    \begin{pmatrix}
+        1 \\
+        2 \\
+        3
+    \end{pmatrix}
+    }
+    \cdot
+    \begin{pmatrix}
+        4 & 5 & 6
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        \textcolor{olive}{1} \cdot 4 & \textcolor{olive}{1} \cdot 5 & \textcolor{olive}{1} \cdot 6 \\
+        \textcolor{olive}{2} \cdot 4 & \textcolor{olive}{2} \cdot 5 & \textcolor{olive}{2} \cdot 6 \\
+        \textcolor{olive}{3} \cdot 4 & \textcolor{olive}{3} \cdot 5 & \textcolor{olive}{3} \cdot 6
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        4 & 5 & 6 \\
+        8 & 10 & 12 \\
+        12 & 15 & 18
+    \end{pmatrix}
 \]
 
 \subsection{Liniearkombination}
@@ -843,6 +882,89 @@ Jedes Element der $i$-ten Zeile der ersten Matrix wird mit jedem Element der $j$
 \end{pmatrix}
 \end{matrix}
 \]
+
+\subsubsection{Spalten-Zeilen-weise}
+\[
+AB =
+\begin{pmatrix}
+    \vert & & \vert \\
+    a_1 & \dots & a_n \\
+    \vert & & \vert
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+    - & b_1 & - \\
+    & \vdots & \\
+    - & b_n & -
+\end{pmatrix}
+=
+a_1b_1 + \cdots + a_nb_n
+\]
+\texttt{Das Dichte zusammenstehen von $a_1b_1$... ist keine Klassische Multiplikation, sondern ein Rang-1-Produkt.} \\
+\\ \\
+Der $i$-te Spaltenvektor der ersten Matrix wird mit dem $i$-ten Zeilenvektor der zweiten Matrix \textit{Rang-1-Produkt} verrechnet. \\ Dabei entsteht für jedes $i$ eine neue Matrix. Diese Matritzen werden dann addiert. \\ \\
+\textbf{Beispiel: $A \cdot B$} \\
+\[
+a_1b_1 = \begin{pmatrix}
+    5 \\
+    8
+\end{pmatrix}
+\begin{pmatrix}
+    1 & 2
+\end{pmatrix}
+=
+\begin{pmatrix}
+    5 \cdot 1 & 5 \cdot 2 \\
+    8 \cdot 1 & 8 \cdot 2
+\end{pmatrix}
+=
+\begin{pmatrix}
+    5 & 10 \\
+    8 & 16
+\end{pmatrix}
+\]
+\[
+a_2b_2 = \cdots = \begin{pmatrix}
+    6 \cdot 3 & 6 \cdot 4 \\
+    9 \cdot 3 & 9 \cdot 4
+\end{pmatrix}
+=
+\begin{pmatrix}
+    18 & 24 \\
+    27 & 36
+\end{pmatrix}
+\]
+\[
+a_3b_3 = \cdots = \cdots = \begin{pmatrix}
+    35 & 42 \\
+    5 & 6
+\end{pmatrix}
+\]
+\[
+\Rightarrow
+\quad
+AB =
+\begin{pmatrix}
+    5 & 10 \\
+    8 & 16
+\end{pmatrix}
++
+\begin{pmatrix}
+    18 & 24 \\
+    27 & 36
+\end{pmatrix}
++
+\begin{pmatrix}
+    35 & 42 \\
+    5 & 6
+\end{pmatrix}
+=
+\begin{pmatrix}
+    58 & 76 \\
+    40 & 58
+\end{pmatrix}
+\]
+
 
 
 
