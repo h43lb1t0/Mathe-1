@@ -360,8 +360,50 @@ Zeilenstuffenform bilden:
 \]
 \textbf{Lösung:} \\
  $x_1 = 3 - 2t$ \\
-$, x_2 = t$ \\
+$x_2 = t$ \\
 $x_3 = t$
+
+
+\subsection{Rang einer Matrix (LGS in Matrixform)}
+Der Rang einer Matrix ist die Anzahl der Zeilen, die linear unabhängig sind. \\ Dafür muss die Matrix in Zeilenstuffenform gebracht werden. Der Rang ist dann die Anzahl der Zeilen, die nicht nur aus Nullen bestehen. \\
+\textbf{Beispiele:}
+\[
+A:
+rang
+\begin{pmatrix}
+\textcolor{olive}{1} & 2 & 3 \\
+0 & \textcolor{olive}{1} & 2 \\
+0 & 0 & 0
+\end{pmatrix}
+= 2
+\quad
+,
+\quad
+B:
+rang
+\begin{pmatrix}
+\textcolor{olive}{1} & 2 & 3 \\
+0 & \textcolor{olive}{1} & 2 \\
+0 & 0 & \textcolor{olive}{1}
+\end{pmatrix}
+= 3
+\]
+
+\subsection{Defekt einer Matrix (LGS in Matrixform)}
+Der Defekt einer Matrix ist die Anzahl von freien Variablen, die in dem LGS der Matrix vorkommen. \\ \\
+$n := \text{Anzahl der Spalten}$ \\
+$def(A) := n - rang(A)$ \\ \\
+Beispiel mit den Matritzen von oben: \\
+$def(A) = 3 - 2 = 1$\\
+$def(B) = 3 - 3 = 0$
+
+\subsection{Lösbarkeit eines LGS}
+\begin{itemize}
+    \item $rang(A) <  rang(A, b)$:\quad LGS ist nicht lösbar.
+    \item $rang(A) = rang(A, b)$:\quad LGS ist lösbar.
+    \item $def(A) = 0$:\quad LGS hat genau eine Lösung.
+    \item $def(A) > 0$:\quad LGS hat unendlich viele Lösungen.
+\end{itemize}
 
 \section{Matritzen und Vektoren}
 \textbf{Videoempfehlung:} \href{https://www.youtube.com/watch?v=fNk_zzaMoSs}{Videoserie 3Blue1Brown - Essence of Linear Algebra 1: Vektoren} \\ \\
