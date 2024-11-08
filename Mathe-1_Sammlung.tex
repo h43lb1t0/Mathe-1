@@ -364,7 +364,8 @@ $, x_2 = t$ \\
 $x_3 = t$
 
 \section{Matritzen und Vektoren}
-\textbf{Videoempfehlung:} \href{https://www.youtube.com/watch?v=fNk_zzaMoSs}{Videoserie 3Blue1Brown - Essence of Linear Algebra 1: Vektoren}
+\textbf{Videoempfehlung:} \href{https://www.youtube.com/watch?v=fNk_zzaMoSs}{Videoserie 3Blue1Brown - Essence of Linear Algebra 1: Vektoren} \\ \\
+Matritzen und Vektoren haben Dimensionen. Die Dimension einer Matrix ist die Anzahl der \textcolor{blue}{Zeilen} und \textcolor{red}{Spalten}. Dies wird Dargestellt als $A \in \mathbb{R}^{\textcolor{blue}{Zeilen}\text{x}\textcolor{red}{Spalten}}$\\ Die Dimension eines Vektors ist die Anzahl der Elemente. \\
 \subsection{Transponierte Matrix (\texorpdfstring{$A^T$}{A^T})}
 Jede Zeile wird zur Spalte. Die Elemente werden von mit dem Uhrzeigersinn gedreht. \\
 \textbf{Beispiel:}
@@ -487,8 +488,6 @@ Vektoren werden als Pfeile dargestellt. Der Anfangspunkt ist der Ursprung. Der P
     \item Achsen schneiden sich im Ursprung.
     \item Der Schnittpunkt der Achsen ist der Ursprung.
 \end{itemize}
-
-\newpage
 \subsubsection{Addition und Subtraktion}
 Zwei Vektoren \textbf{a} und \textbf{b} spannen immer ein Parallelogramm mit den Diagonalen \textbf{$a+b$} und \textbf{$a-b$} auf, so lange sie nicht parallel, ein Vielfaches voneinander oder der Nullvektor sind. \\
 
@@ -735,8 +734,73 @@ Aus dem Parallelogramm kann die Lösung des LGS abgelesen werden in dem geguckt 
 \]
 \textbf{Lösung:} $(x_1, x_2) = (1, 2)$
 
+\subsection{Matrixmultiplikation}
+\textbf{\textcolor{red}{Vorraussetzung:}} Die Anzahl der Spalten der ersten Matrix muss der Anzahl der Zeilen der zweiten Matrix entsprechen. \\ \\
+\textbf{Achtung!} Die Reihenfolge der Multiplikation ist wichtig. Matrixmultiplikation ist nicht Kummutativ\\ \\
+\textcolor{blue}{Die neue Matrix wird so groß wie die Anzahl der Zeilen der ersten Matrix und die Anzahl der Spalten der zweiten Matrix.} \\
+\textbf{Beispiel:}
+\[
+\textcolor{blue}{3}\text{x}\textcolor{red}{4} \cdot \textcolor{red}{4}\text{x}\textcolor{blue}{2} = \textcolor{blue}{3}\text{x}\textcolor{blue}{2}
+\]
+\subsubsection{Falk-Schema}
+Das Falk-Schema ist eine hilfreiche unterstützung bei Matrixmultiplikationen. \\
+\[
+\begin{matrix}
+A \downarrow B \rightarrow  & \begin{pmatrix}
+       b_{1,1} & \dots & b_{1,p} \\
+         \vdots &  & \vdots \\
+         b_{n, 1} & \dots & b_{n, p}
+        \end{pmatrix} \\ \\
+\begin{pmatrix}
+a_{1,1} & \dots & a_{1,m} \\
+\vdots &  & \vdots \\
+a_{n,1} & \dots & a_{n,m}
+\end{pmatrix} & \begin{pmatrix}
+c_{1,1} & \dots & c_{1,p} \\
+\vdots &  & \vdots \\
+c_{n,1} & \dots & c_{n,p}
+\end{pmatrix}
+\end{matrix}
+\]
+\newpage
 
-
+\subsubsection{Zeilen-Spalten-weise}
+Jedes Element der $i$-ten Zeile der ersten Matrix wird mit jedem Element der $j$-ten Spalte der zweiten Matrix multipliziert und aufsummiert. (Sklarprodukt) \\
+\textbf{Beispiel: $A \cdot B$} \\
+\[
+\begin{matrix}
+    A \downarrow B \rightarrow & \begin{pmatrix}
+1 & 2 \\
+3 & 4 \\
+5 & 6
+\end{pmatrix} \\ \\
+\begin{pmatrix}
+5 & 6 & 7\\
+8 & 9 & 1
+\end{pmatrix} & \begin{pmatrix}
+[5 \cdot 1 + 6 \cdot 3 + 7 \cdot 5] & [5 \cdot 2 + 6 \cdot 4 + 7 \cdot 6] \\
+[8 \cdot 1 + 9 \cdot 3 + 1 \cdot 5] & [8 \cdot 2 + 9 \cdot 4 + 1 \cdot 6]
+\end{pmatrix}
+\end{matrix}
+\]
+\[
+\Rightarrow
+\quad
+\begin{matrix}
+    A \downarrow B \rightarrow & \begin{pmatrix}
+1 & 2 \\
+3 & 4 \\
+5 & 6
+\end{pmatrix} \\ \\
+\begin{pmatrix}
+5 & 6 & 7\\
+8 & 9 & 1
+\end{pmatrix} & \begin{pmatrix}
+    58 & 76 \\
+    40 & 58
+\end{pmatrix}
+\end{matrix}
+\]
 
 
 
