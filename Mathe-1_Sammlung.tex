@@ -434,6 +434,21 @@ Jede Zeile wird zur Spalte. Die Elemente werden von mit dem Uhrzeigersinn gedreh
 \end{pmatrix}
 \]
 
+\subsection{Determinante (\texorpdfstring{$det(A)$}{det(A)})}
+Die Determinante einer Matrix ist die Hauptdiagonale minus die Nebendiagonale. \\
+\textbf{Beispiel:}
+\[
+A = 
+\begin{pmatrix}
+1 & 2 \\
+3 & 4
+\end{pmatrix}
+\quad
+\Rightarrow
+\quad
+det(A) = 1 \cdot 4 - 2 \cdot 3 = 4 - 6 = -2
+\]
+
 \subsection{Addition und Subtraktion}
 Matritzen (und Vektoren) können nur addiert oder subtrahiert werden, wenn sie die gleiche Dimension haben. \\
 Jedes Element wird mit dem entsprechenden Element der anderen Matrix addiert oder subtrahiert. \\
@@ -556,6 +571,17 @@ Eine Linearkombination ist eine Summe von Skalarmultiplikationen von Vektoren. \
 11 \\
 16
 \end{pmatrix}
+\]
+\newpage
+\subsection{Einheitsmatrix ($E_n$)}
+Die Einheitsmatrix ist eine quadratische Matrix, bei der alle Elemente auf der Hauptdiagonalen 1 sind und alle anderen Elemente 0 sind. \\ Jede Matrix multipliziert mit der Einheitsmatrix ergibt die gleiche Matrix. \\
+\[
+\begin{pmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{pmatrix}
+= E_3
 \]
 
 \subsection{Analytische Geometrie}
@@ -965,9 +991,86 @@ AB =
 \end{pmatrix}
 \]
 
+\newpage
+\subsection{"Matrix Division" (Finde bei $M \cdot A = C$, $M$)}
+\textbf{Vorraussetzung:} $A$ und $C$ sind bekannt. \\
+$M$ wird die gleichen Dimensionen wie $C$ haben. \\ \\
+\textbf{Beispiel:} \\
+$A \cdot M = C$ \\
+\[
+\begin{pmatrix}
+1 & 2 \\
+3 & 4
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+x & y \\
+z & w
+\end{pmatrix}
+=
+\begin{pmatrix}
+    1 & 2 \\
+    0 & 2
+\end{pmatrix}
+\]
+\[
+\rightarrow
+\quad
+\begin{pmatrix}
+1 \cdot x + 2 \cdot z & 1 \cdot y + 2 \cdot w \\
+3 \cdot x + 4 \cdot z & 3 \cdot y + 4 \cdot w
+\end{pmatrix}
+\]
+
+\textbf{NOCH NICHT FERTIG}
 
 
+\subsection{Inverse Matrix ($A^{-1}$)}
 
+Gauß-Jordan-Verfahren: \\
+
+
+\subsubsection{2 x 2 Inverse}
+\textbf{Vorraussetzung:} $det(A) \neq 0$
+\[
+\begin{pmatrix}
+    a & c \\
+    b & d
+\end{pmatrix}^{-1}
+=
+\frac{1}{ad - bc}
+\begin{pmatrix}
+    d & -c \\
+    -b & a
+\end{pmatrix}
+\]
+\textbf{Beispiel:}
+\[
+\begin{pmatrix}
+    1 & 2 \\
+    3 & 4
+\end{pmatrix}^{-1}
+=
+\frac{1}{1 \cdot 4 - 2 \cdot 3}
+\begin{pmatrix}
+    4 & -2 \\
+    -3 & 1
+\end{pmatrix}
+\]
+\\
+\[
+=
+\frac{1}{-2}
+\begin{pmatrix}
+    4 & -2 \\
+    -3 & 1
+\end{pmatrix}
+=
+\begin{pmatrix}
+    -2 & 1 \\
+    1.5 & -0.5
+\end{pmatrix}
+\]
 
 
 \end{document}
