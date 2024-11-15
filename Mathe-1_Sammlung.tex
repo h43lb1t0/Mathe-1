@@ -869,7 +869,6 @@ c_{n,1} & \dots & c_{n,p}
 \end{pmatrix}
 \end{matrix}
 \]
-\newpage
 
 \subsubsection{Zeilen-Spalten-weise}
 Jedes Element der $i$-ten Zeile der ersten Matrix wird mit jedem Element der $j$-ten Spalte der zweiten Matrix multipliziert und aufsummiert. (Sklarprodukt) \\
@@ -991,47 +990,227 @@ AB =
 \end{pmatrix}
 \]
 
-\newpage
-\subsection{"Matrix Division" (Finde bei $M \cdot A = C$, $M$)}
-\textbf{Vorraussetzung:} $A$ und $C$ sind bekannt. \\
-$M$ wird die gleichen Dimensionen wie $C$ haben. \\ \\
-\textbf{Beispiel:} \\
-$A \cdot M = C$ \\
+\subsection{Permutationsmatrix}
+Eine Permutationsmatrix ist eine quadratische Matrix die mit einer anderen Matrix multipliziert die Zeilen oder Spalten vertauscht. \\
+Wird eine Permutationsmatrix von links mit einer Matrix multipliziert, so werden die Zeilen vertauscht, wird sie von rechts multipliziert, so werden die Spalten vertauscht. \\
+\textbf{Beispiel (Zeilentausch):}
 \[
+P \cdot A
+=
+\begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+1 & 2 \\
+3 & 4
+\end{pmatrix}
+=
+\begin{pmatrix}
+3 & 4 \\
+1 & 2
+\end{pmatrix}
+\]
+
+\textbf{Beispiel (Spaltentausch):}
+\[
+A \cdot P
+=
 \begin{pmatrix}
 1 & 2 \\
 3 & 4
 \end{pmatrix}
 \cdot
 \begin{pmatrix}
-x & y \\
-z & w
+0 & 1 \\
+1 & 0
 \end{pmatrix}
 =
 \begin{pmatrix}
+2 & 1 \\
+4 & 3
+\end{pmatrix}
+\]
+
+\textbf{Permutationsmatrix erstellen:} \\
+Es wird eine Einheitsmatrix erstellt und dann die Zeilen oder Spalten so vertauscht wie es in der Permutationsmatrix passieren soll. \\
+\textbf{Beispiel:}
+\[
+E_2 =
+\begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix}
+,A =
+\begin{pmatrix}
     1 & 2 \\
-    0 & 2
+    3 & 4
+\end{pmatrix}
+\]
+Zeile 1 und 2 vertauschen:
+\[
+P =
+\begin{pmatrix}
+0 & 1 \\
+1 & 0
 \end{pmatrix}
 \]
 \[
-\rightarrow
-\quad
+P \cdot A = 
 \begin{pmatrix}
-1 \cdot x + 2 \cdot z & 1 \cdot y + 2 \cdot w \\
-3 \cdot x + 4 \cdot z & 3 \cdot y + 4 \cdot w
+    3 & 4 \\
+    1 & 2
 \end{pmatrix}
 \]
 
-\textbf{NOCH NICHT FERTIG}
+
+\subsection{Eliminationsmatrix}
+Eine Eliminationsmatrix ist eine quadratische Matrix, die eine andere Matrix in Zeilenstuffenform bringt. \\
+Dabei wird die Eliminationsmatrix von links mit der Matrix multipliziert um Zeilen zu ändern, und von rechts um Spalten zu ändern. \\
+\textbf{Beispiel (Unteres Dreieck bilden):}
+\[
+E \cdot A
+=
+\begin{pmatrix}
+1 & 0 \\
+-\frac{1}{3} & 1
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+3 & 4 \\
+1 & 2
+\end{pmatrix}
+=
+\begin{pmatrix}
+3 & 4 \\
+0 & \frac{2}{3}
+\end{pmatrix}
+\]
+
+\textbf{Eliminationsmatrix erstellen:} \\
+Die Eliminationsmatrix wird erstellt, indem die Einheitsmatrix genommen wird und dann die Elemente so verändert werden, wie beim Gauß-Verfahren. \\
+\textbf{Beispiel:}
+\[
+A =
+\begin{pmatrix}
+    1 & 2 & 3 \\
+    4 & 5 & 6 \\
+    7 & 8 & 9
+\end{pmatrix}
+E =
+\begin{pmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{pmatrix}
+\]
+Die \textcolor{blue}{$II$} Zeile soll \textcolor{green}{$4$} mal von der \textcolor{olive}{$I$} Zeile abgezogen werden. \\
+Dafür wird die Einheitsmatrix genommen und das Element $E_{\textcolor{olive}{1},\textcolor{blue}{2}}$ auf $\textcolor{green}{-4}$ gesetzt. \\
+\[
+\begin{matrix}
+    E \downarrow A \rightarrow & \begin{pmatrix}
+        1 & 2 & 3 \\
+        4 & 5 & 6 \\
+        7 & 8 & 9
+    \end{pmatrix} \\ \\
+    \begin{pmatrix}
+        1 & -4 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 1
+    \end{pmatrix} & \begin{pmatrix}
+        -15 & -18 & -21 \\
+        4 & 5 & 6 \\
+        7 & 8 & 9
+    \end{pmatrix}
+\end{matrix}
+\]
+
+
 
 
 \subsection{Inverse Matrix ($A^{-1}$)}
-
-Gauß-Jordan-Verfahren: \\
-
+Die Inverse einer Matrix ist die Matrix, die mit der ursprünglichen Matrix multipliziert die Einheitsmatrix ergibt. \\
+Nicht jede Matrix ist invertierbar. \\ \\
+\textbf{Vorraussetzung:} $det(A) \neq 0$, Matrix ist Quadratisch \\
+\begin{itemize}
+    \item \textbf{Regulär:} Matrix ist invertierbar.
+    \item \textbf{Singulär:} Matrix ist nicht invertierbar.
+    \item $A^{-1}A=E_n$
+    \item \textbf{Selbstinventierend:} $E_n$ (Einheitsmatrix) und $P$ (Permutationsmatrix) invertiert sich selbst.
+    \item Wenn $A$ invertierbar ist, dann ist $A^T$ auch invertierbar. Dabei gilt: $(A^T)^{-1} = (A^{-1})^T$
+    \item Wenn $A, B \in \mathbb{R}^{nxm} $ invertierbar sind, dann ist auch $A \cdot B$ invertierbar. Dabei gilt: $(A \cdot B)^{-1} = B^{-1} \cdot A^{-1}$
+\end{itemize}
+\textbf{Gauß-Jordan-Verfahren:} \\
+Die Matrix $A$ und die Einheitsmatrix $E_n$ werden nebeneinander geschrieben $\begin{pmatrix}A & \vert & E_n\end{pmatrix}$. \\
+Dann wird die Matrix $A$ durch elementare Zeilenoperationen in die Einheitsmatrix umgewandelt, dabei werden die gleichen Operationen auf die Einheitsmatrix angewendet. Aus der Einheitsmatrix wird dann die Inverse. \\ \\
+\newpage
+\textbf{Beispiel:}
+\[
+\begin{matrix}
+    \begin{pmatrix}
+        A && E_3\\
+        \begin{matrix}
+            2 & -1 & 0 \\
+            1 & 1 & 0 \\
+            0 & 0 & 1
+        \end{matrix} & \vert &
+        \begin{matrix}
+            1 & 0 & 0 \\
+            0 & 1 & 0 \\
+            0 & 0 & 1
+        \end{matrix}
+    \end{pmatrix}
+    &
+    \begin{matrix}
+        I + II \\
+        2 \cdot II - I \\
+    \end{matrix}
+\end{matrix}
+\]
+\[
+\begin{matrix}
+    \begin{pmatrix}
+        A && E_3\\
+        \begin{matrix}
+            3 & 0 & 0 \\
+            0 & 3 & 0 \\
+            0 & 0 & 1
+        \end{matrix} & \vert &
+        \begin{matrix}
+            1 & 1 & 0 \\
+            -1 & 2 & 0 \\
+            0 & 0 & 1
+        \end{matrix}
+    \end{pmatrix}
+    &
+    \begin{matrix}
+        \vert \cdot \frac{1}{3} \\
+        \vert \cdot \frac{1}{3}
+    \end{matrix}
+    &&
+\end{matrix}
+\]
+\[
+\begin{matrix}
+    \begin{pmatrix}
+        A && A^{-1}\\
+        \begin{matrix}
+            1 & 0 & 0 \\
+            0 & 1 & 0 \\
+            0 & 0 & 1
+        \end{matrix} & \vert &
+        \begin{matrix}
+            \frac{1}{3} & \frac{1}{3} & 0 \\
+            -\frac{1}{3} & \frac{2}{3} & 0 \\
+            0 & 0 & 1
+        \end{matrix}
+    \end{pmatrix}
+    &&&&&
+\end{matrix}
+\]
 
 \subsubsection{2 x 2 Inverse}
-\textbf{Vorraussetzung:} $det(A) \neq 0$
 \[
 \begin{pmatrix}
     a & c \\
