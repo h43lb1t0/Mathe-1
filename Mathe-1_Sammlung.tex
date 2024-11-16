@@ -7,6 +7,7 @@
 \usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{colortbl}
+\usepackage{arydshln}
 \geometry{a4paper, left=25mm, right=25mm, top=20mm, bottom=20mm}
 
 \setcounter{secnumdepth}{4}
@@ -223,6 +224,22 @@
 \textbf{Symbol:} $\vdash$ \\
 \textbf{Erklärung:} Das Symbol für die logische Folgerung oder Ableitung. \\
 \textbf{Beispiel:} $P \vdash Q$ bedeutet, dass $Q$ aus $P$ folgt.
+
+\subsection{Wahrheitstabelle}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+    \hline
+    A & B & $A \land B$ & $A \lor B$ & $A \implies B$ & $A \impliedby B$ & $A \iff B$ & $\neg A$ & $\neg B$ \\
+    \hline
+    w & w & w & w & w & w & w & f & f \\
+    \hdashline
+    w & f & f & w & f & w & f & f & w \\
+    \hdashline
+    f & w & f & w & w & f & f & w & f \\
+    \hdashline
+    f & f & f & f & w & w & w & w & w \\
+    \hline
+\end{tabular}
+
 \section{Zuweisungen}
 
 \subsection{Definition (\texorpdfstring{$:=$}{:=})}
@@ -231,6 +248,7 @@
 \textbf{Beispiel:} $A := \{1,2,3\}$
 
 
+\newpage
 \section{LGS (Lineare Gleichungssysteme)}
 \subsection{Begriffe}
 \begin{itemize}
