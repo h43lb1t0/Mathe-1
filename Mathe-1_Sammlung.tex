@@ -8,10 +8,20 @@
 \usepackage{xcolor}
 \usepackage{colortbl}
 \usepackage{arydshln}
+\usepackage{tikz}
+\usetikzlibrary{tikzmark,calc}
 \geometry{a4paper, left=25mm, right=25mm, top=20mm, bottom=20mm}
 
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
+
+\newcommand*{\verticalline}[3][black]{%
+  \begin{tikzpicture}[remember picture, overlay]
+    \draw [densely dashed, color=#1] ($(pic cs:#2) + (1ex,1.8ex)$)
+      -- ($(pic cs:#3) + (1ex,-0.3ex)$);
+  \end{tikzpicture}
+}
+
 
 \begin{document}
 
@@ -289,11 +299,11 @@
 \[
 A =
 \quad
-\begin{pmatrix}
+\begin{bmatrix}
 \textcolor{red}{2} & 3 & \textcolor{blue}{-1} \\
 \textcolor{red}{4} & -1 & \textcolor{blue}{5} \\
 \textcolor{red}{1} & 2 & \textcolor{blue}{3}
-\end{pmatrix}
+\end{bmatrix}
 \quad
 , b =
 \quad
@@ -358,11 +368,11 @@ Zeilenstuffenform bilden:
 \end{align*}
 \textbf{erweitere Koeffizientenmatrix:}
 \[
-\begin{pmatrix}
+\begin{bmatrix}
 1 & 2 & -1 & 3 \\
 2 & 4 & -2 & 6 \\
 3 & 6 & -3 & 9
-\end{pmatrix}
+\end{bmatrix}
 \]
 \textbf{Zeilenstuffenform:}
 \[
@@ -391,22 +401,22 @@ Der Rang einer Matrix ist die Anzahl der Zeilen, die linear unabhängig sind. \\
 \[
 A:
 rang
-\begin{pmatrix}
+\begin{bmatrix}
 \textcolor{olive}{1} & 2 & 3 \\
 0 & \textcolor{olive}{1} & 2 \\
 0 & 0 & 0
-\end{pmatrix}
+\end{bmatrix}
 = 2
 \quad
 ,
 \quad
 B:
 rang
-\begin{pmatrix}
+\begin{bmatrix}
 \textcolor{olive}{1} & 2 & 3 \\
 0 & \textcolor{olive}{1} & 2 \\
 0 & 0 & \textcolor{olive}{1}
-\end{pmatrix}
+\end{bmatrix}
 = 3
 \]
 
@@ -438,29 +448,76 @@ Matritzen und Vektoren haben Dimensionen. Die Dimension einer Matrix ist die Anz
 Jede Zeile wird zur Spalte. Die Elemente werden von mit dem Uhrzeigersinn gedreht. \\
 \textbf{Beispiel:}
 \[
-\begin{pmatrix}
+\begin{bmatrix}
 1 & \textcolor{blue}{2} & \textcolor{red}{3} \\
 4 & \textcolor{blue}{5} & \textcolor{red}{6}
-\end{pmatrix}^T
+\end{bmatrix}^T
 \quad
 =
 \quad
-\begin{pmatrix}
+\begin{bmatrix}
     1 & 4 \\
     \textcolor{blue}{2} & \textcolor{blue}{5} \\
     \textcolor{red}{3} & \textcolor{red}{6}
-\end{pmatrix}
+\end{bmatrix}
 \]
 
 \subsection{Determinante (\texorpdfstring{$det(A)$}{det(A)})}
+\subsubsection{3x3 Matrix (Sarrus-Regel)}
+
+\[
+\begin{bmatrix}
+    \tikzmark{a}a & \tikzmark{d}d & \tikzmark{g}g \\
+    b & e & h \\
+    \tikzmark{c1}c & \tikzmark{f1}f & \tikzmark{i}i
+\end{bmatrix}
+\begin{matrix}
+    \tikzmark{a2}a & \tikzmark{d2}d \\
+    b & e \\
+    \tikzmark{c}c & \tikzmark{f}f
+\end{matrix}
+\]
+\verticalline[blue]{a}{i}
+\verticalline[blue]{d}{c}
+\verticalline[blue]{g}{f}
+\verticalline[red]{c1}{g}
+\verticalline[red]{f1}{a2}
+\verticalline[red]{i}{d2}
+
+Die ersten beiden Spalten werden an die rechte Seite angehängt. Die \textcolor{blue}{Diagonalen} werden je multipliziert und dann addiert. Die \textcolor{red}{Gegen-Diagonalen} werden je multipliziert und dann subtrahiert. \\ \\
+$det(A) = \textcolor{blue}{aei + dhc + gbf} \textcolor{red}{- ceg - fha - ibd}$ \\ \\
+\textbf{Beispiel:}
+\[
+\begin{bmatrix}
+    1 & 2 & 3 \\
+    2 & -1 & 1 \\
+    3 & 2 & 4
+\end{bmatrix}
+\begin{matrix}
+    1 & 2 \\
+    2 & -1 \\
+    3 & 2
+\end{matrix}
+\]
+\[
+\det(A) = \textcolor{blue}{1 \cdot (-1) \cdot 4 + 2 \cdot 1 \cdot 3 + 3 \cdot 2 \cdot 2 - 3 \cdot (-1) \cdot 3 - 2 \cdot 2 \cdot 1 - 4 \cdot 2 \cdot 2}
+\]
+\[
+\textcolor{red}{-3 \cdot (-1) \cdot 3 - 2 \cdot 1 \cdot 1 - 4 \cdot 2 \cdot 2}
+\]
+\[
+=-4 + 6 + 12 + 9 - 2 - 16 \Rightarrow \det(A) = 5
+\]
+
+\subsubsection{2x2 Matrix}
 Die Determinante einer Matrix ist die Hauptdiagonale minus die Nebendiagonale. \\
 \textbf{Beispiel:}
 \[
 A = 
-\begin{pmatrix}
+\begin{bmatrix}
 1 & 2 \\
 3 & 4
-\end{pmatrix}
+\end{bmatrix}
 \quad
 \Rightarrow
 \quad
@@ -472,20 +529,20 @@ Matritzen (und Vektoren) können nur addiert oder subtrahiert werden, wenn sie d
 Jedes Element wird mit dem entsprechenden Element der anderen Matrix addiert oder subtrahiert. \\
 \textbf{Beispiel:}
 \[
-\begin{pmatrix}
+\begin{bmatrix}
 1 & 2 \\
 3 & 4
-\end{pmatrix}
+\end{bmatrix}
 +
-\begin{pmatrix}
+\begin{bmatrix}
 5 & 6 \\
 7 & 8
-\end{pmatrix}
+\end{bmatrix}
 =
-\begin{pmatrix}
+\begin{bmatrix}
 6 & 8 \\
 10 & 12
-\end{pmatrix}
+\end{bmatrix}
 \]
 
 \subsection{Sklarmultiplikation}
@@ -494,15 +551,15 @@ Jedes Element der Matrix (oder des Vektors) wird mit dem Skalar multipliziert. \
 \textbf{Beispiel:}
 \[
 2 \cdot
-\begin{pmatrix}
+\begin{bmatrix}
 1 & 2 \\
 3 & 4
-\end{pmatrix}
+\end{bmatrix}
 =
-\begin{pmatrix}
+\begin{bmatrix}
 2 & 4 \\
 6 & 8
-\end{pmatrix}
+\end{bmatrix}
 \]
 
 \subsection{Sklarprodukt}
@@ -546,17 +603,17 @@ Das Rang-1-Produkt funktioniert, grundlegend wie das Skalarprodukt, jedoch werde
         4 & 5 & 6
     \end{pmatrix}
     =
-    \begin{pmatrix}
+    \begin{bmatrix}
         \textcolor{olive}{1} \cdot 4 & \textcolor{olive}{1} \cdot 5 & \textcolor{olive}{1} \cdot 6 \\
         \textcolor{olive}{2} \cdot 4 & \textcolor{olive}{2} \cdot 5 & \textcolor{olive}{2} \cdot 6 \\
         \textcolor{olive}{3} \cdot 4 & \textcolor{olive}{3} \cdot 5 & \textcolor{olive}{3} \cdot 6
-    \end{pmatrix}
+    \end{bmatrix}
     =
-    \begin{pmatrix}
+    \begin{bmatrix}
         4 & 5 & 6 \\
         8 & 10 & 12 \\
         12 & 15 & 18
-    \end{pmatrix}
+    \end{bmatrix}
 \]
 
 \subsection{Liniearkombination}
@@ -594,11 +651,11 @@ Eine Linearkombination ist eine Summe von Skalarmultiplikationen von Vektoren. \
 \subsection{Einheitsmatrix ($E_n$)}
 Die Einheitsmatrix ist eine quadratische Matrix, bei der alle Elemente auf der Hauptdiagonalen 1 sind und alle anderen Elemente 0 sind. \\ Jede Matrix multipliziert mit der Einheitsmatrix ergibt die gleiche Matrix. \\
 \[
-\begin{pmatrix}
+\begin{bmatrix}
 1 & 0 & 0 \\
 0 & 1 & 0 \\
 0 & 0 & 1
-\end{pmatrix}
+\end{bmatrix}
 = E_3
 \]
 
@@ -871,20 +928,20 @@ Aus dem Parallelogramm kann die Lösung des LGS abgelesen werden in dem geguckt 
 Das Falk-Schema ist eine hilfreiche unterstützung bei Matrixmultiplikationen. \\
 \[
 \begin{matrix}
-A \downarrow B \rightarrow  & \begin{pmatrix}
+A \downarrow B \rightarrow  & \begin{bmatrix}
        b_{1,1} & \dots & b_{1,p} \\
          \vdots &  & \vdots \\
          b_{n, 1} & \dots & b_{n, p}
-        \end{pmatrix} \\ \\
-\begin{pmatrix}
+        \end{bmatrix} \\ \\
+\begin{bmatrix}
 a_{1,1} & \dots & a_{1,m} \\
 \vdots &  & \vdots \\
 a_{n,1} & \dots & a_{n,m}
-\end{pmatrix} & \begin{pmatrix}
+\end{bmatrix} & \begin{bmatrix}
 c_{1,1} & \dots & c_{1,p} \\
 \vdots &  & \vdots \\
 c_{n,1} & \dots & c_{n,p}
-\end{pmatrix}
+\end{bmatrix}
 \end{matrix}
 \]
 
@@ -893,53 +950,53 @@ Jedes Element der $i$-ten Zeile der ersten Matrix wird mit jedem Element der $j$
 \textbf{Beispiel: $A \cdot B$} \\
 \[
 \begin{matrix}
-    A \downarrow B \rightarrow & \begin{pmatrix}
+    A \downarrow B \rightarrow & \begin{bmatrix}
 1 & 2 \\
 3 & 4 \\
 5 & 6
-\end{pmatrix} \\ \\
-\begin{pmatrix}
+\end{bmatrix} \\ \\
+\begin{bmatrix}
 5 & 6 & 7\\
 8 & 9 & 1
-\end{pmatrix} & \begin{pmatrix}
+\end{bmatrix} & \begin{bmatrix}
 [5 \cdot 1 + 6 \cdot 3 + 7 \cdot 5] & [5 \cdot 2 + 6 \cdot 4 + 7 \cdot 6] \\
 [8 \cdot 1 + 9 \cdot 3 + 1 \cdot 5] & [8 \cdot 2 + 9 \cdot 4 + 1 \cdot 6]
-\end{pmatrix}
+\end{bmatrix}
 \end{matrix}
 \]
 \[
 \Rightarrow
 \quad
 \begin{matrix}
-    A \downarrow B \rightarrow & \begin{pmatrix}
+    A \downarrow B \rightarrow & \begin{bmatrix}
 1 & 2 \\
 3 & 4 \\
 5 & 6
-\end{pmatrix} \\ \\
-\begin{pmatrix}
+\end{bmatrix} \\ \\
+\begin{bmatrix}
 5 & 6 & 7\\
 8 & 9 & 1
-\end{pmatrix} & \begin{pmatrix}
+\end{bmatrix} & \begin{bmatrix}
     58 & 76 \\
     40 & 58
-\end{pmatrix}
+\end{bmatrix}
 \end{matrix}
 \]
 
 \subsubsection{Spalten-Zeilen-weise}
 \[
 AB =
-\begin{pmatrix}
+\begin{bmatrix}
     \vert & & \vert \\
     a_1 & \dots & a_n \\
     \vert & & \vert
-\end{pmatrix}
+\end{bmatrix}
 \cdot
-\begin{pmatrix}
+\begin{bmatrix}
     - & b_1 & - \\
     & \vdots & \\
     - & b_n & -
-\end{pmatrix}
+\end{bmatrix}
 =
 a_1b_1 + \cdots + a_nb_n
 \]
@@ -956,56 +1013,56 @@ a_1b_1 = \begin{pmatrix}
     1 & 2
 \end{pmatrix}
 =
-\begin{pmatrix}
+\begin{bmatrix}
     5 \cdot 1 & 5 \cdot 2 \\
     8 \cdot 1 & 8 \cdot 2
-\end{pmatrix}
+\end{bmatrix}
 =
-\begin{pmatrix}
+\begin{bmatrix}
     5 & 10 \\
     8 & 16
-\end{pmatrix}
+\end{bmatrix}
 \]
 \[
-a_2b_2 = \cdots = \begin{pmatrix}
+a_2b_2 = \cdots = \begin{bmatrix}
     6 \cdot 3 & 6 \cdot 4 \\
     9 \cdot 3 & 9 \cdot 4
-\end{pmatrix}
+\end{bmatrix}
 =
-\begin{pmatrix}
+\begin{bmatrix}
     18 & 24 \\
     27 & 36
-\end{pmatrix}
+\end{bmatrix}
 \]
 \[
-a_3b_3 = \cdots = \cdots = \begin{pmatrix}
+a_3b_3 = \cdots = \cdots = \begin{bmatrix}
     35 & 42 \\
     5 & 6
-\end{pmatrix}
+\end{bmatrix}
 \]
 \[
 \Rightarrow
 \quad
 AB =
-\begin{pmatrix}
+\begin{bmatrix}
     5 & 10 \\
     8 & 16
-\end{pmatrix}
+\end{bmatrix}
 +
-\begin{pmatrix}
+\begin{bmatrix}
     18 & 24 \\
     27 & 36
-\end{pmatrix}
+\end{bmatrix}
 +
-\begin{pmatrix}
+\begin{bmatrix}
     35 & 42 \\
     5 & 6
-\end{pmatrix}
+\end{bmatrix}
 =
-\begin{pmatrix}
+\begin{bmatrix}
     58 & 76 \\
     40 & 58
-\end{pmatrix}
+\end{bmatrix}
 \]
 
 \subsection{Permutationsmatrix}
@@ -1015,40 +1072,40 @@ Wird eine Permutationsmatrix von links mit einer Matrix multipliziert, so werden
 \[
 P \cdot A
 =
-\begin{pmatrix}
+\begin{bmatrix}
 0 & 1 \\
 1 & 0
-\end{pmatrix}
+\end{bmatrix}
 \cdot
-\begin{pmatrix}
+\begin{bmatrix}
 1 & 2 \\
 3 & 4
-\end{pmatrix}
+\end{bmatrix}
 =
-\begin{pmatrix}
+\begin{bmatrix}
 3 & 4 \\
 1 & 2
-\end{pmatrix}
+\end{bmatrix}
 \]
 
 \textbf{Beispiel (Spaltentausch):}
 \[
 A \cdot P
 =
-\begin{pmatrix}
+\begin{bmatrix}
 1 & 2 \\
 3 & 4
-\end{pmatrix}
+\end{bmatrix}
 \cdot
-\begin{pmatrix}
+\begin{bmatrix}
 0 & 1 \\
 1 & 0
-\end{pmatrix}
+\end{bmatrix}
 =
-\begin{pmatrix}
+\begin{bmatrix}
 2 & 1 \\
 4 & 3
-\end{pmatrix}
+\end{bmatrix}
 \]
 
 \textbf{Permutationsmatrix erstellen:} \\
@@ -1056,30 +1113,30 @@ Es wird eine Einheitsmatrix erstellt und dann die Zeilen oder Spalten so vertaus
 \textbf{Beispiel:}
 \[
 E_2 =
-\begin{pmatrix}
+\begin{bmatrix}
 1 & 0 \\
 0 & 1
-\end{pmatrix}
+\end{bmatrix}
 ,A =
-\begin{pmatrix}
+\begin{bmatrix}
     1 & 2 \\
     3 & 4
-\end{pmatrix}
+\end{bmatrix}
 \]
 Zeile 1 und 2 vertauschen:
 \[
 P =
-\begin{pmatrix}
+\begin{bmatrix}
 0 & 1 \\
 1 & 0
-\end{pmatrix}
+\end{bmatrix}
 \]
 \[
 P \cdot A = 
-\begin{pmatrix}
+\begin{bmatrix}
     3 & 4 \\
     1 & 2
-\end{pmatrix}
+\end{bmatrix}
 \]
 
 
@@ -1090,20 +1147,20 @@ Dabei wird die Eliminationsmatrix von links mit der Matrix multipliziert um Zeil
 \[
 E \cdot A
 =
-\begin{pmatrix}
+\begin{bmatrix}
 1 & 0 \\
 -\frac{1}{3} & 1
-\end{pmatrix}
+\end{bmatrix}
 \cdot
-\begin{pmatrix}
+\begin{bmatrix}
 3 & 4 \\
 1 & 2
-\end{pmatrix}
+\end{bmatrix}
 =
-\begin{pmatrix}
+\begin{bmatrix}
 3 & 4 \\
 0 & \frac{2}{3}
-\end{pmatrix}
+\end{bmatrix}
 \]
 
 \textbf{Eliminationsmatrix erstellen:} \\
@@ -1111,36 +1168,36 @@ Die Eliminationsmatrix wird erstellt, indem die Einheitsmatrix genommen wird und
 \textbf{Beispiel:}
 \[
 A =
-\begin{pmatrix}
+\begin{bmatrix}
     1 & 2 & 3 \\
     4 & 5 & 6 \\
     7 & 8 & 9
-\end{pmatrix}
+\end{bmatrix}
 E =
-\begin{pmatrix}
+\begin{bmatrix}
 1 & 0 & 0 \\
 0 & 1 & 0 \\
 0 & 0 & 1
-\end{pmatrix}
+\end{bmatrix}
 \]
 Die \textcolor{blue}{$II$} Zeile soll \textcolor{green}{$4$} mal von der \textcolor{olive}{$I$} Zeile abgezogen werden. \\
 Dafür wird die Einheitsmatrix genommen und das Element $E_{\textcolor{olive}{1},\textcolor{blue}{2}}$ auf $\textcolor{green}{-4}$ gesetzt. \\
 \[
 \begin{matrix}
-    E \downarrow A \rightarrow & \begin{pmatrix}
+    E \downarrow A \rightarrow & \begin{bmatrix}
         1 & 2 & 3 \\
         4 & 5 & 6 \\
         7 & 8 & 9
-    \end{pmatrix} \\ \\
-    \begin{pmatrix}
+    \end{bmatrix} \\ \\
+    \begin{bmatrix}
         1 & -4 & 0 \\
         0 & 1 & 0 \\
         0 & 0 & 1
-    \end{pmatrix} & \begin{pmatrix}
+    \end{bmatrix} & \begin{bmatrix}
         -15 & -18 & -21 \\
         4 & 5 & 6 \\
         7 & 8 & 9
-    \end{pmatrix}
+    \end{bmatrix}
 \end{matrix}
 \]
 
@@ -1160,13 +1217,13 @@ Nicht jede Matrix ist invertierbar. \\ \\
     \item Wenn $A, B \in \mathbb{R}^{nxm} $ invertierbar sind, dann ist auch $A \cdot B$ invertierbar. Dabei gilt: $(A \cdot B)^{-1} = B^{-1} \cdot A^{-1}$
 \end{itemize}
 \textbf{Gauß-Jordan-Verfahren:} \\
-Die Matrix $A$ und die Einheitsmatrix $E_n$ werden nebeneinander geschrieben $\begin{pmatrix}A & \vert & E_n\end{pmatrix}$. \\
+Die Matrix $A$ und die Einheitsmatrix $E_n$ werden nebeneinander geschrieben $\begin{bmatrix}A & \vert & E_n\end{bmatrix}$. \\
 Dann wird die Matrix $A$ durch elementare Zeilenoperationen in die Einheitsmatrix umgewandelt, dabei werden die gleichen Operationen auf die Einheitsmatrix angewendet. Aus der Einheitsmatrix wird dann die Inverse. \\ \\
 \newpage
 \textbf{Beispiel:}
 \[
 \begin{matrix}
-    \begin{pmatrix}
+    \begin{bmatrix}
         A && E_3\\
         \begin{matrix}
             2 & -1 & 0 \\
@@ -1178,7 +1235,7 @@ Dann wird die Matrix $A$ durch elementare Zeilenoperationen in die Einheitsmatri
             0 & 1 & 0 \\
             0 & 0 & 1
         \end{matrix}
-    \end{pmatrix}
+    \end{bmatrix}
     &
     \begin{matrix}
         I + II \\
@@ -1188,7 +1245,7 @@ Dann wird die Matrix $A$ durch elementare Zeilenoperationen in die Einheitsmatri
 \]
 \[
 \begin{matrix}
-    \begin{pmatrix}
+    \begin{bmatrix}
         A && E_3\\
         \begin{matrix}
             3 & 0 & 0 \\
@@ -1200,7 +1257,7 @@ Dann wird die Matrix $A$ durch elementare Zeilenoperationen in die Einheitsmatri
             -1 & 2 & 0 \\
             0 & 0 & 1
         \end{matrix}
-    \end{pmatrix}
+    \end{bmatrix}
     &
     \begin{matrix}
         \vert \cdot \frac{1}{3} \\
@@ -1211,7 +1268,7 @@ Dann wird die Matrix $A$ durch elementare Zeilenoperationen in die Einheitsmatri
 \]
 \[
 \begin{matrix}
-    \begin{pmatrix}
+    \begin{bmatrix}
         A && A^{-1}\\
         \begin{matrix}
             1 & 0 & 0 \\
@@ -1223,51 +1280,54 @@ Dann wird die Matrix $A$ durch elementare Zeilenoperationen in die Einheitsmatri
             -\frac{1}{3} & \frac{2}{3} & 0 \\
             0 & 0 & 1
         \end{matrix}
-    \end{pmatrix}
+    \end{bmatrix}
     &&&&&
 \end{matrix}
 \]
 
 \subsubsection{2 x 2 Inverse}
 \[
-\begin{pmatrix}
+\begin{bmatrix}
     a & c \\
     b & d
-\end{pmatrix}^{-1}
+\end{bmatrix}^{-1}
 =
 \frac{1}{ad - bc}
-\begin{pmatrix}
+\begin{bmatrix}
     d & -c \\
     -b & a
-\end{pmatrix}
+\end{bmatrix}
 \]
 \textbf{Beispiel:}
 \[
-\begin{pmatrix}
+\begin{bmatrix}
     1 & 2 \\
     3 & 4
-\end{pmatrix}^{-1}
+\end{bmatrix}^{-1}
 =
 \frac{1}{1 \cdot 4 - 2 \cdot 3}
-\begin{pmatrix}
+\begin{bmatrix}
     4 & -2 \\
     -3 & 1
-\end{pmatrix}
+\end{bmatrix}
 \]
 \\
 \[
 =
 \frac{1}{-2}
-\begin{pmatrix}
+\begin{bmatrix}
     4 & -2 \\
     -3 & 1
-\end{pmatrix}
+\end{bmatrix}
 =
-\begin{pmatrix}
+\begin{bmatrix}
     -2 & 1 \\
     1.5 & -0.5
-\end{pmatrix}
+\end{bmatrix}
 \]
+
+\subsubsection{Bei welchen Parameter gibt es keine Inverse?}
+Die Determinantenformel $\det A = 0$ der Matrix nach $p$ umstellen. 
 
 
 \end{document}
