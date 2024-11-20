@@ -441,6 +441,25 @@ $def(B) = 3 - 3 = 0$
     \item \textbf{Homogenes LGS:} Ein LGS, bei dem alle Ergebnisse auf der rechten Seite 0 sind.
     \item \textbf{Inhomogenes LGS:} Ein LGS, bei dem mindestens ein Ergebnis auf der rechten Seite ungleich 0 ist.
 \end{itemize}
+\subsection{Textaufgaben}
+\textbf{Beispiel:} \\
+\textit{Ein Bauer hat drei verschiedene Tierarten auf seinem Hof: Enten, Schweine und Kühe.
+Insgesamt hat er 50 Tiere. Es gibt doppelt so viele Enten wie Schweine, und alle Tiere haben zusammen 140 Beine. \\
+Bestimme die Anzahl der Enten, Schweine und Kühe auf dem Hof.} \\ \\
+$e :=$ Anzahl der Enten
+$s :=$ Anzahl der Schweine
+$k :=$ Anzahl der Kühe \\ \\
+\begin{enumerate}
+\item Gesamtanzahl der Tiere: $e + s + k = 50$
+\item Es gibt doppelt so viele Enten wie Schweine: $e = 2s$
+\item Alle Tiere haben zusammen 140 Beine (Enten haben 2 Beine, Schweine 4 und Kühe 4): $2e + 4s + 4k = 140$
+\end{enumerate}
+\textbf{Lösung:} \\
+Gleichungen nach $e$, $s$ und $k$ umstellen und lösen. \\
+Enten: 30, Schweine: 15, Kühe: 5
+
+
+
 \section{Matritzen und Vektoren}
 \textbf{Videoempfehlung:} \href{https://www.youtube.com/watch?v=fNk_zzaMoSs}{Videoserie 3Blue1Brown - Essence of Linear Algebra 1: Vektoren} \\ \\
 Matritzen und Vektoren haben Dimensionen. Die Dimension einer Matrix ist die Anzahl der \textcolor{blue}{Zeilen} und \textcolor{red}{Spalten}. Dies wird Dargestellt als $A \in \mathbb{R}^{\textcolor{blue}{Zeilen}\text{x}\textcolor{red}{Spalten}}$\\ Die Dimension eines Vektors ist die Anzahl der Elemente. \\
@@ -1325,6 +1344,11 @@ Dann wird die Matrix $A$ durch elementare Zeilenoperationen in die Einheitsmatri
     1.5 & -0.5
 \end{bmatrix}
 \]
+
+\subsubsection{Spezialfälle}
+\begin{itemize}
+    \item \textbf{Diagonalmatrix:} Die Inverse einer Diagonalmatrix ist eine Diagonalmatrix, bei der jedes Element invertiert wird.    
+\end{itemize}
 
 \subsubsection{Bei welchen Parameter gibt es keine Inverse?}
 Die Determinantenformel $\det A = 0$ der Matrix nach $p$ umstellen. 
