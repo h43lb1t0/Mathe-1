@@ -1234,6 +1234,7 @@ Nicht jede Matrix ist invertierbar. \\ \\
     \item \textbf{Selbstinventierend:} $E_n$ (Einheitsmatrix) und $P$ (Permutationsmatrix) invertiert sich selbst.
     \item Wenn $A$ invertierbar ist, dann ist $A^T$ auch invertierbar. Dabei gilt: $(A^T)^{-1} = (A^{-1})^T$
     \item Wenn $A, B \in \mathbb{R}^{nxm} $ invertierbar sind, dann ist auch $A \cdot B$ invertierbar. Dabei gilt: $(A \cdot B)^{-1} = B^{-1} \cdot A^{-1}$
+    \item $A \in \mathbb{R}^{nxn}$ ist inventierbar und $b \in \mathbb{R}^n \quad \rightarrow$ LGS $Ax = b$ hat eine eindeutige Lösung $x = A^{-1}b$ 
 \end{itemize}
 \textbf{Gauß-Jordan-Verfahren:} \\
 Die Matrix $A$ und die Einheitsmatrix $E_n$ werden nebeneinander geschrieben $\begin{bmatrix}A & \vert & E_n\end{bmatrix}$. \\
@@ -1347,11 +1348,25 @@ Dann wird die Matrix $A$ durch elementare Zeilenoperationen in die Einheitsmatri
 
 \subsubsection{Spezialfälle}
 \begin{itemize}
-    \item \textbf{Diagonalmatrix:} Die Inverse einer Diagonalmatrix ist eine Diagonalmatrix, bei der jedes Element invertiert wird.    
+    \item \textbf{Diagonalmatrix:} Die Inverse einer Diagonalmatrix ist eine Diagonalmatrix, bei der jedes Element invertiert wird.  
+    \item \textbf{Eliminationsmatrix} Vorzeichen der nicht Diagonalelemente wird invertiert.  
 \end{itemize}
 
 \subsubsection{Bei welchen Parameter gibt es keine Inverse?}
 Die Determinantenformel $\det A = 0$ der Matrix nach $p$ umstellen. 
 
+\subsection{Vektorraum $\mathbb{R}^2$}
+Zeugs über basen und so hier
 
+\subsubsection{Geraden}
+
+\subsubsection{Länge und Abstände}
+\[
+\text{Sei} \quad \vec{a} = \begin{pmatrix} x \\ y \end{pmatrix} \in \mathbb{R}^2
+\]
+\[
+\text{Länge} \quad \vert \vec{a} \vert = \sqrt{x^2 + y^2}
+\]
+
+\subsubsection{Orthogonalität und Winkel}
 \end{document}
